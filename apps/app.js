@@ -172,7 +172,7 @@ let upgradeCost = document.querySelector('.upgrade__cost')
         let img = document.createElement('img')
         let text = document.createElement('p')
         text.classList.add('gift__text')
-        img.src = `images/Gift-${a}.png`
+        img.src = `images/gift-${a}.png`
         img.alt = 'Gift'
         gift.append(img)
         let size = 120
