@@ -10,6 +10,7 @@ body {
 .main__page {
     width: 100%;
     height: 100vh;
+    position: relative;
     overflow: hidden;
 }
 .main__back {
@@ -38,7 +39,8 @@ body {
     user-select: none;
 }
 .button__text-money,
-.upgrade__error {
+.upgrade__error,
+.upgrade__error-four {
     font-size: 55px;
     color: white;
     animation: money 1s linear;
@@ -52,6 +54,10 @@ body {
     font-size: 30px;
     animation: money 2s linear;
 
+}
+.upgrade__error-four {
+    font-size: 40px;
+    margin-left: -170px;
 }
 .button__img {
     width: 100%;
@@ -67,6 +73,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    z-index: 100;
 }
 .money__info {
     color: white;
@@ -77,8 +84,13 @@ body {
     font-size: 50px;
 }
 /* Upgrade */
+.upgrade__box {
+    z-index: 10;
+}
 .upgrade__item,
-.upgrade__item-2 {
+.upgrade__item-2,
+.upgrade__item-3,
+.upgrade__item-4 {
     position: absolute;
     top: 18%;
     left: 5%;
@@ -90,6 +102,14 @@ body {
     left: 15%;
 
 }
+.upgrade__item-3 {
+    left: auto;
+    right: 15%;
+}
+.upgrade__item-4 {
+    left: auto;
+    right: 5%;
+}
 .upgrade__item-box {
     border: 2px solid lightseagreen;
 
@@ -97,8 +117,17 @@ body {
 .upgrade__item-box-2 {
     border: 2px solid blue;
 }
+.upgrade__item-box-3 {
+    border: 2px solid darkmagenta;
+}
+.upgrade__item-box-4 {
+    border: 2px solid rgb(168, 0, 0);
+}
 .upgrade__cost,
-.upgrade__cost-2 {
+.upgrade__cost-2,
+.upgrade__cost-3,
+.upgrade__cost-4 {
+    width: 144px;
     color: white;
     font-size: 25px;
     padding: 5px 10px 5px 10px;
@@ -107,13 +136,23 @@ body {
 .upgrade__cost-2 {
     background: blue;
 }
+.upgrade__cost-4 {
+    background: rgb(168, 0, 0);
+}
+.upgrade__cost-3 {
+    background: darkmagenta;
+}
 
-.upgrade__info {
+.upgrade__info,
+.upgrade__info-2,
+.upgrade__info-3,
+.upgrade__info-4 {
     color: white;
     font-size: 25px;
     width: 135px;
     margin: 15px 0 15px 0;
     user-select: none;
+    text-align: center;
 }
 .upgrade__img-1 {
     width: 100%;
@@ -121,8 +160,127 @@ body {
     object-fit: cover;
 }
 .upgrade__img-box {
-    width: 135px;
-    height: 135px;
+    width: 140px;
+    height: 140px;
+}
+/* Upgrade three */
+.gift {
+    display: none;
+}
+.gift__text {
+    font-size: 50px;
+    color: white;
+    animation: money 2s linear;
+}
+/* Upgrade four */
+.upgrade__four-box {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    z-index: 10;
+    visibility: hidden;
+}
+.upgrade__four-animation {
+    animation: cat-4 3s linear;
+
+}
+.upgrade__four-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upgrade__four-cooldown {
+    font-size: 50px;
+    color: white;
+    display: none;
+}
+
+/* Light decoration */
+.upgrade__light-box {
+    position: absolute;
+    top: 0;
+    right: 44.5%;
+    width: 200px;
+    height: 430px;
+    z-index: 20;
+    visibility: hidden;
+}
+.light__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Upgrade lvl info */
+.lvl__box, 
+.lvl__box-2,
+.lvl__box-3,
+.lvl__box-4 {
+    margin-top: -7px;
+    width: 144px;
+    height: 100px;
+    left: 0;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+}
+.lvl__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.lvl__text,
+.lvl__text-2,
+.lvl__text-3,
+.lvl__text-4 {
+    color: white;
+    font-size: 40px;
+    z-index: 2;
+    margin-bottom: -35px;
+    position: absolute;
+}
+/* Shop in main__page */
+.shop__box {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 2%;
+    bottom: 3%;
+    z-index: 51;
+}
+.shop__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.shop__box-text {
+    color: white;
+    font-size: 50px;
+    margin-top: -250px;
+}
+/* Shop */
+.shop {
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.shop__back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
 }
 @keyframes money {
     0% {
@@ -141,5 +299,18 @@ body {
     }
 
 }
-
+@keyframes cat-4 {
+    5% {
+        transform: rotate(25deg);
+    }
+    50% {
+        right: 100%;
+    }
+    50.1% {
+        right: -15%;
+    }
+    100% {
+        right: 15%;
+    }
+}
 
