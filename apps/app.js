@@ -205,6 +205,10 @@ let upgradeCost = document.querySelector('.upgrade__cost')
           moneyDecorThree.innerHTML = `+${(clickMain * d).toFixed(2)}$`
           gift.append(moneyDecorThree)
           moneyDecorThree.classList.add('button__text-money')
+          setTimeout(() => {
+            let parent = moneyDecorThree.parentNode
+            parent.removeChild(moneyDecorThree)
+        }, 950);
       }
       }
 
@@ -301,6 +305,10 @@ function buttonMoneyDecorFour() {
     moneyDecorFour.innerHTML = `+${(100 * clickMain).toFixed(2)}$`
     buttonBox.append(moneyDecorFour)
     moneyDecorFour.classList.add('button__text-money')
+    setTimeout(() => {
+        let parent = moneyDecorFour.parentNode
+        parent.removeChild(moneyDecorFour)
+    }, 950);
 }
 function cooldownFourError() {
     let upgradeError = document.createElement('p')
