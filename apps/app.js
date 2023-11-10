@@ -19,12 +19,15 @@ button.addEventListener('click', () => {
     moneyInfoFunction()
 })
 
-
 function buttonMoneyDecor() {
     let moneyDecor = document.createElement('p')
     moneyDecor.innerHTML = `+${clickMain.toFixed(2)}$`
     buttonBox.append(moneyDecor)
     moneyDecor.classList.add('button__text-money')
+    setTimeout(() => {
+        let parent = moneyDecor.parentNode
+        parent.removeChild(moneyDecor)
+    }, 950);
 }
 // Button
 // Upgrade

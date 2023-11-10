@@ -19,6 +19,7 @@ body {
     object-fit: cover;
     user-select: none;
 }
+
 /* Button */
 .button__box {
     width: 150px;
@@ -48,7 +49,7 @@ body {
     position: absolute;
     user-select: none;
     opacity: 1;
-    margin-top: -1000px;
+    margin-top: 0px;
 }
 .upgrade__error {
     font-size: 30px;
