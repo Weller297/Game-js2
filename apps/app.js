@@ -72,6 +72,11 @@ let upgradeCost = document.querySelector('.upgrade__cost')
         upgradeError.innerHTML = `Not Enough!!!`
         upgradeItem.append(upgradeError)
         upgradeError.classList.add('upgrade__error')
+        setTimeout(() => {
+            let parent = upgradeError.parentNode
+            parent.removeChild(upgradeError)
+        }, 950);
+
     }
 
 
@@ -110,6 +115,10 @@ let upgradeCost = document.querySelector('.upgrade__cost')
         upgradeError.innerHTML = `Not Enough!!!`
         upgradeItemTwo.append(upgradeError)
         upgradeError.classList.add('upgrade__error')
+        setTimeout(() => {
+            let parent = upgradeError.parentNode
+            parent.removeChild(upgradeError)
+        }, 950);
     }
     // Upgrade 3
     let upgradeItemThree = document.querySelector('.upgrade__item-3')
@@ -146,6 +155,10 @@ let upgradeCost = document.querySelector('.upgrade__cost')
         upgradeError.innerHTML = `Not Enough!!!`
         upgradeItemThree.append(upgradeError)
         upgradeError.classList.add('upgrade__error')
+        setTimeout(() => {
+            let parent = upgradeError.parentNode
+            parent.removeChild(upgradeError)
+        }, 950);
     }
     // function four
     function giftChangeSpawn() {
@@ -251,6 +264,10 @@ let upgradeCost = document.querySelector('.upgrade__cost')
         upgradeError.innerHTML = `Not Enough!!!`
         upgradeItemFour.append(upgradeError)
         upgradeError.classList.add('upgrade__error')
+        setTimeout(() => {
+            let parent = upgradeError.parentNode
+            parent.removeChild(upgradeError)
+        }, 950);
     }
     
 // Upgrade
@@ -340,4 +357,110 @@ shopIconBox.addEventListener('click', () => {
 // Shop
 
 
+
+// Raid
+let attackBox = document.querySelector('.attack__box')
+let raidText = document.querySelector('.raid__text')
+
+raidChance()
+
+function raidChance() {
+    function getRandom(min, max) {
+        return Math.round(Math.random() * (max - min) + min)
+    }
+    let chance = getRandom(0, 10)
+    if (chance == 5) {
+        raidText.style.visibility = 'visible'
+        setTimeout(() => {
+            raidText.style.visibility = 'hidden'
+
+            raidAttacks()
+        }, 5000);
+    }
+    setTimeout(raidChance, 10000)
+}
+function raidAttacks() {
+    let i = 50
+    setInterval(() => {
+        if (i > 0) {
+            attackSpawnVertical()
+            setTimeout(() => {
+                attackSpawnHorizontally()    
+            }, 50);
+            i--
+        }else {
+            return
+        }
+    }, 100);
+}
+
+
+function attackSpawnVertical() {
+    let attack = document.createElement('div')
+    let warning = document.createElement('div')
+    warning.classList.add('raid__warning-vertical')
+    attack.classList.add('attack')
+    attack.classList.add('raid__attack-vertical')
+
+    function getRandom(min, max) {
+        return Math.round(Math.random() * (max - min) + min)
+    }
+    let y = getRandom(5, 95)
+    let a = getRandom(1, 20)
+
+    warning.style.left = `${y+0.5}%`
+    warning.style.top = `${0}%`
+    setTimeout(() => {
+        attack.style.left = `${y}%`
+        attack.style.top = `${0}%`
+        
+    }, 1000);
+
+    mainPage.append(attack)
+    mainPage.append(warning)
+    setTimeout(() => {
+        let parent = attack.parentNode
+        parent.removeChild(attack)
+        let parentTwo = warning.parentNode
+        parentTwo.removeChild(warning)
+    }, 2000);
+    attack.addEventListener('mouseover', () => {
+        moneyInfo = moneyInfo - a
+        moneyInfoFunction()
+    })
+}
+
+function attackSpawnHorizontally() {
+    let attack = document.createElement('div')
+    let warning = document.createElement('div')
+    warning.classList.add('raid__warning-horizontally')
+    attack.classList.add('attack')
+    attack.classList.add('raid__attack-horizontally')
+
+    function getRandom(min, max) {
+        return Math.round(Math.random() * (max - min) + min)
+    }
+    let x = getRandom(5, 95)
+    let a = getRandom(1, 20)
+    warning.style.top = `${x+0.5}%`
+    setTimeout(() => {
+    attack.style.top = `${x}%`
+    }, 1000);
+
+    mainPage.append(attack)
+    mainPage.append(warning)
+    setTimeout(() => {
+        let parent = attack.parentNode
+        parent.removeChild(attack)
+        let parentTwo = warning.parentNode
+        parentTwo.removeChild(warning)
+    }, 2000);
+
+    attack.addEventListener('mouseover', () => {
+        moneyInfo = moneyInfo - a
+        moneyInfoFunction()
+    })
+}
+
+// Raid
 
