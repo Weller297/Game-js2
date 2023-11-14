@@ -91,7 +91,9 @@ body {
 .upgrade__item,
 .upgrade__item-2,
 .upgrade__item-3,
-.upgrade__item-4 {
+.upgrade__item-4,
+.upgrade__item-5,
+.upgrade__item-6 {
     position: absolute;
     top: 18%;
     left: 5%;
@@ -111,6 +113,14 @@ body {
     left: auto;
     right: 5%;
 }
+.upgrade__item-5 {
+    left: auto;
+    right: 5%;
+}
+.upgrade__item-6 {
+    left: auto;
+    right: 25%;
+}
 .upgrade__item-box {
     border: 2px solid lightseagreen;
 
@@ -124,10 +134,18 @@ body {
 .upgrade__item-box-4 {
     border: 2px solid rgb(168, 0, 0);
 }
+.upgrade__item-box-5 {
+    border: 2px solid rgb(168, 0, 0);
+}
+.upgrade__item-box-6 {
+    border: 2px solid deeppink;
+}
 .upgrade__cost,
 .upgrade__cost-2,
 .upgrade__cost-3,
-.upgrade__cost-4 {
+.upgrade__cost-4,
+.upgrade__cost-5,
+.upgrade__cost-6 {
     width: 144px;
     color: white;
     font-size: 25px;
@@ -143,11 +161,19 @@ body {
 .upgrade__cost-3 {
     background: darkmagenta;
 }
+.upgrade__cost-6 {
+    background: deeppink;
+}
+.upgrade__cost-5 {
+    background: gold;
+}
 
 .upgrade__info,
 .upgrade__info-2,
 .upgrade__info-3,
-.upgrade__info-4 {
+.upgrade__info-4,
+.upgrade__info-5,
+.upgrade__info-6 {
     color: white;
     font-size: 25px;
     width: 135px;
@@ -215,11 +241,28 @@ body {
     height: 100%;
     object-fit: cover;
 }
+/* Upgrade six */
+.upgrade__six-box {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 18%;
+    right: 44%;
+    animation: dws-bounce 700ms linear infinite;
+    display: none;
+}
+.upgrade__six-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* Upgrade lvl info */
 .lvl__box, 
 .lvl__box-2,
 .lvl__box-3,
-.lvl__box-4 {
+.lvl__box-4,
+.lvl__box-5,
+.lvl__box-6 {
     margin-top: -7px;
     width: 144px;
     height: 100px;
@@ -240,7 +283,9 @@ body {
 .lvl__text,
 .lvl__text-2,
 .lvl__text-3,
-.lvl__text-4 {
+.lvl__text-4,
+.lvl__text-5,
+.lvl__text-6 {
     color: white;
     font-size: 40px;
     z-index: 2;
@@ -367,3 +412,14 @@ body {
     }
 }
 
+@keyframes dws-bounce {
+    0% {
+        top: 18%;
+    }
+    60% {
+        top: 10%;
+    }
+    100% {
+        top: 18%;
+    }
+}

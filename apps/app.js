@@ -269,6 +269,83 @@ let upgradeCost = document.querySelector('.upgrade__cost')
             parent.removeChild(upgradeError)
         }, 950);
     }
+
+
+
+    // Upgrade 6
+    let upgradeItemSix = document.querySelector('.upgrade__item-6')
+    let upgradeCostSix = document.querySelector('.upgrade__cost-6')
+    upgradeItemSix.addEventListener('click', () => {
+        upgradeItemSixFunct()
+    })
+    // function one
+    function upgradeItemSixFunct() {
+        if (moneyInfo >= moneyCostSix) {
+            moneyInfoFunction()
+            upgradeUpgradeSixFunct()
+            upgradeSixBox.style.visibility = `visible`
+        }else {
+            upgradeItemSixError()
+        }
+    }
+    // function two
+    let moneyCostSix = 500
+    let lvlTextSix = document.querySelector('.lvl__text-6')
+    let c = 1
+    function upgradeUpgradeSixFunct() {
+        upgradeSixAnim()
+        moneyInfo = moneyInfo - moneyCostSix
+        moneyInfoFunction()
+        moneyCostSix = Math.floor(moneyCostSix/100*135)
+        upgradeCostSix.innerHTML = `Upgrade: ${moneyCostSix}`
+        lvlTextSix.innerHTML = `lvl: ${c}`
+        c += 1
+    }
+    // function three
+    function upgradeItemSixError() {
+        let upgradeError = document.createElement('p')
+        upgradeError.innerHTML = `Not Enough!!!`
+        upgradeItemSix.append(upgradeError)
+        upgradeError.classList.add('upgrade__error')
+        setTimeout(() => {
+            let parent = upgradeError.parentNode
+            parent.removeChild(upgradeError)
+        }, 950);
+    }
+    function upgradeSixAnim() {
+        let upgradeSixBox = document.querySelector('.upgrade__six-box')
+        upgradeSixBox.style.display = 'flex'
+        let i = 7
+        upgradeSixAnimIn()
+        function upgradeSixAnimIn() {
+            if (i > 0) {
+                moneyInfo = moneyInfo + clickMain
+                moneyInfoFunction()
+                buttonMoneyDecor()
+                i--
+            }else {
+                moneyInfo = moneyInfo + clickMain * 10
+                moneyInfoFunction()
+                buttonMoneyDecorSix()
+                i = 7
+                upgradeLight.style.visibility = 'visible'
+                setTimeout(() => {
+                upgradeLight.style.visibility = 'hidden'
+                }, 200);
+            }
+            setTimeout(upgradeSixAnimIn, 700)
+        }
+    }
+    function buttonMoneyDecorSix() {
+        let moneyDecor = document.createElement('p')
+        moneyDecor.innerHTML = `+${(clickMain*10).toFixed(2)}$`
+        buttonBox.append(moneyDecor)
+        moneyDecor.classList.add('button__text-money')
+        setTimeout(() => {
+            let parent = moneyDecor.parentNode
+            parent.removeChild(moneyDecor)
+        }, 950);
+    }
     
 // Upgrade
 // Upgrade in main page
@@ -332,6 +409,10 @@ function cooldownFourError() {
     upgradeError.innerHTML = `Recharge!!!`
     upgradeFourBox.append(upgradeError)
     upgradeError.classList.add('upgrade__error-four')
+    setTimeout(() => {
+        let parent = upgradeError.parentNode
+        parent.removeChild(upgradeError)
+    }, 950);
 }
 
 // Auto cat in a trolley
@@ -362,34 +443,47 @@ shopIconBox.addEventListener('click', () => {
 let attackBox = document.querySelector('.attack__box')
 let raidText = document.querySelector('.raid__text')
 
-raidChance()
 
+let timeOut = 10
+let kolvoAttacks = 50
+setTimeout(() => {
+    raidChance()
+}, 30000);
 function raidChance() {
     function getRandom(min, max) {
         return Math.round(Math.random() * (max - min) + min)
     }
-    let chance = getRandom(0, 10)
-    if (chance == 5) {
+    let chance = getRandom(0, timeOut)
+    if (chance == 0) {
+        timeOut = timeOut + 10
         raidText.style.visibility = 'visible'
         setTimeout(() => {
             raidText.style.visibility = 'hidden'
 
             raidAttacks()
         }, 5000);
+    }else {
+        --timeOut
+        kolvoAttacks = kolvoAttacks + 10
+        console.log(kolvoAttacks);
     }
-    setTimeout(raidChance, 10000)
+    setTimeout(raidChance, 15000)
 }
+
+
 function raidAttacks() {
-    let i = 50
-    setInterval(() => {
+    let i = kolvoAttacks
+    let interval = setInterval(() => {
         if (i > 0) {
+            attackSpawnVertical()
             attackSpawnVertical()
             setTimeout(() => {
                 attackSpawnHorizontally()    
             }, 50);
             i--
         }else {
-            return
+            clearInterval(interval)
+            return kolvoAttacks = 50
         }
     }, 100);
 }
@@ -464,3 +558,5 @@ function attackSpawnHorizontally() {
 
 // Raid
 
+
+    
